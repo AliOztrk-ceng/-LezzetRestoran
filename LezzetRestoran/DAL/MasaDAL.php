@@ -8,7 +8,7 @@ class MasaDAL {
     public static function masalariGetir() {
         global $db;
         try {
-            // Doğrudan SQL yazmıyoruz, hazırladığımız Procedure'ü CALL ile çağırıyoruz!
+            //  Procedure'ü CALL ile çağırıyoruz
             $sorgu = $db->prepare("CALL sp_MasalarHepsi()");
             $sorgu->execute();
             return $sorgu->fetchAll(PDO::FETCH_ASSOC);
@@ -17,11 +17,11 @@ class MasaDAL {
         }
     }
 
-    // 2. Belirli Bir Masanın Hesabını Getirme (Yazdığımız Fonksiyonu Kullanarak)
+    // 2. Belirli Bir Masanın Hesabını Getirme (Fonksiyonu Kullanarak)
     public static function masaHesabiGetir($masa_id) {
         global $db;
         try {
-            // Burada da fn_MasaHesap fonksiyonumuzu çağırıyoruz
+            // Burada da fn_MasaHesap fonksiyonunu çağırıyoruz
             $sorgu = $db->prepare("SELECT fn_MasaHesap(:masa_id) AS guncel_hesap");
             $sorgu->bindParam(':masa_id', $masa_id, PDO::PARAM_INT);
             $sorgu->execute();
@@ -32,8 +32,8 @@ class MasaDAL {
         }
     }
 
-    // 3. Sipariş Girildiğinde veya Kapatıldığında Masa Durumunu Kontrol Etme
-    // Not: Masa durumlarını 'Dolu' veya 'Boş' yapma işini MySQL'deki TRIGGER'lara 
-    // bıraktığımız için buraya ekstra bir güncelleme kodu yazmamıza gerek kalmadı!
+   
+    // Not: Masa durumlarını 'Dolu' veya 'Boş' yapma işi MySQL'deki TRIGGER'lara bırakıldı
+    
 }
 ?>

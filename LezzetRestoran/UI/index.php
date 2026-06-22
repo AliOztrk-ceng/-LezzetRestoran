@@ -1,6 +1,6 @@
 <?php
 session_start();
-// Güvenlik: Giriş yapılmamışsa login sayfasına at (Bunu sonra test ederiz)
+// Güvenlik: Giriş yapılmamışsa login sayfasına atar
 if (!isset($_SESSION['kullanici_id'])) { header("Location: login.php"); exit(); }
 
 require_once '../BLL/MasaBLL.php';

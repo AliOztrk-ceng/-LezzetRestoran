@@ -14,7 +14,7 @@ if ($masa_id == 0) { header("Location: index.php"); exit(); }
 // Sayfa yüklendiğinde menüdeki ürünleri çekiyoruz
 $urunler = UrunBLL::urunleriGetirBLL();
 
-// İŞTE O MEŞHUR FONKSİYONUMUZ: Masanın güncel borcunu veri tabanından tek hamlede çekiyoruz!
+
 $guncelHesap = MasaBLL::masaHesabiGetirBLL($masa_id); 
 if (!$guncelHesap) $guncelHesap = 0; // Eğer sipariş yoksa hesap 0'dır
 

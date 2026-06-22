@@ -7,7 +7,7 @@ if (isset($_SESSION['kullanici_id'])) {
     exit();
 }
 
-// BLL katmanımızdaki giriş kontrol fonksiyonlarını çağırıyoruz
+
 require_once '../BLL/KullaniciBLL.php';
 
 $mesaj = "";
@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $kadi = $_POST['kullanici_adi'];
     $sifre = $_POST['sifre'];
     
-    // BLL katmanındaki kural süzgecinden geçiriyoruz
+    
     $girisDurumu = KullaniciBLL::girisKontrol($kadi, $sifre);
     
     if ($girisDurumu === true) {
@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: index.php");
         exit();
     } else {
-        // Hata varsa mesajı değişkene at, aşağıda ekrana basacağız
+        
         $mesaj = $girisDurumu;
     }
 }
@@ -37,16 +37,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <title>Lezzet Restoran - Giriş Yap</title>
     <style>
-        /* Sadece giriş ekranına özel sıcak temalı tasarım */
+       
         body {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-color: #fdf5e6; /* Sıcak krem rengi arka plan */
+            background-color: #fdf5e6; 
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Ekranın tam ortasına dikey hizalamak için */
+            height: 100vh; 
         }
         .giris-kutusu {
             background-color: white;
@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             text-align: center;
             width: 300px;
-            border-top: 5px solid #d35400; /* Kiremit rengi vurgu */
+            border-top: 5px solid #d35400; 
         }
         .giris-kutusu h2 {
             color: #d35400;
@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 5px;
-            box-sizing: border-box; /* Yazı alanının kutudan taşmasını önler */
+            box-sizing: border-box; 
         }
         .giris-kutusu button {
             width: 100%;
@@ -81,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             margin-top: 10px;
         }
         .giris-kutusu button:hover {
-            background-color: #e67e22; /* Üzerine gelince ahşap turuncusu */
+            background-color: #e67e22; 
         }
         .hata {
             color: #c0392b;

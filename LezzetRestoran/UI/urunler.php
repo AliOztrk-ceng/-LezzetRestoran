@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['urun_ekle'])) {
     }
 }
 
-// 2. ÜRÜN SİLME İŞLEMİ (YENİ EKLENEN KISIM)
+// 2. ÜRÜN SİLME İŞLEMİ 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['urun_sil'])) {
     $sil_id = $_POST['silinecek_urun_id'];
     
